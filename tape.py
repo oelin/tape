@@ -1,5 +1,7 @@
 from typing import Iterator
 
+
+
 class Tape:
 
   def variable(self, x):
@@ -8,6 +10,7 @@ class Tape:
 
     return self.tape.add(x) or x
 
-  def run(self, f, x, tape):
-    self.tape = iter(tape) if tape else tape
-    return f(x), tape
+  def run(self, f, x, tape = None):
+    self.tape = tape and iter(tape) or set()
+    
+    return f(x), self.tape
