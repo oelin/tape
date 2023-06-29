@@ -21,7 +21,7 @@ class Linear:
     return w.T @ x + b
 ```
 
-Using `Linear` within a larger module.
+Using `Linear` within a larger module (supports co-location).
 
 ```py
 def model(x):
