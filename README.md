@@ -20,7 +20,7 @@ class Tape:
 ```
 
 
-## Examples
+## Usage
 
 Implementing a `Linear` module.
 
@@ -28,15 +28,11 @@ Implementing a `Linear` module.
 from dataclasses import dataclass
 from tape import tape
 
-@dataclass
-class Linear:
-  features: Tuple = (2, 1)
+def Linear(features):
+  w = tape.variable(np.random.randn(*self.features))    # weight
+  b = tape.variable(np.random.randn(self.features[1]))  # bias
 
-  def __call__(self, x):
-    w = tape.variable(np.random.randn(*self.features))    # weight
-    b = tape.variable(np.random.randn(self.features[1]))  # bias
-
-    return w.T @ x + b
+  return lambda x: w.T @ x + b
 ```
 
 Using `Linear` within a larger module (supports co-location).
