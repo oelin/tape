@@ -19,14 +19,16 @@ class Tape:
     return f(x), tape
 ```
 
+```py
+tape = Tape()
+```
+
 
 ## Usage
 
 Define a `Linear` layer.
 
 ```py
-tape = Tape()
-
 def Linear(x, y):
   w = tape.parameter(np.random.randn(x, y))  # weight
   b = tape.parameter(np.random.randn(y))     # bias
