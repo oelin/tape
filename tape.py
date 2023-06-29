@@ -1,3 +1,5 @@
+from typing import Iterator
+
 class Tape:
 
   def variable(self, x):
