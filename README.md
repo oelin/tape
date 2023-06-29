@@ -22,12 +22,6 @@ class Tape:
 
 ## Usage
 
-Initialize a tape.
-
-```py
-tape = Tape()
-```
-
 Define a `Linear` layer.
 
 ```py
