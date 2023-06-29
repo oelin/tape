@@ -47,7 +47,7 @@ Run the model. Firstly initialize its parameters and then run it with those para
 
 ```py
 >>> batch = np.ones(28 * 28)
->>> x, parameters = tape.run(model, batch, set())          # Initialization. 
+>>> x, parameters = tape.run(model, batch, set())       # Initialization. 
 >>> x, parameters = tape.run(model, batch, parameters)  # Forward pass.
 ```
 
