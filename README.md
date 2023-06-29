@@ -50,7 +50,7 @@ Run the model. Firstly initialize its parameters and then run it with those para
 >>> x, parameters = tape.run(model, batch, parameters)  # Forward pass.
 ```
 
-Compare with Flax.
+Compare with [Flax](https://github.com/google/flax).
 
 ```py
 >>> batch = jnp.ones(28 * 28)
