@@ -1,6 +1,6 @@
 # Tape
 
-A tiny (9 line) parameter tape implementation.
+A tiny (8 line) parameter tape implementation.
 
 
 ## Implementation
@@ -9,13 +9,13 @@ A tiny (9 line) parameter tape implementation.
 class Tape:
 
   def parameter(self, x):
-    if isinstance(self.tape, Iterator):
-      return next(self.tape)
 
-    return self.tape.add(x) or x
+    if isinstance(self.tape, set):
+      return self.tape.add(x) or x
+    return next(self.tape)
 
   def run(self, f, x, tape):
-    self.tape = iter(tape) if tape else tape
+    self.tape = tape and tape or iter(tape)
     return f(x), tape
 ```
 
