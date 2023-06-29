@@ -25,7 +25,7 @@ class Tape:
 Define a `Linear` layer.
 
 ```py
-from tape import tape
+tape = Tape()
 
 def Linear(x, y):
   w = tape.parameter(np.random.randn(x, y))  # weight
