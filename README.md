@@ -32,7 +32,7 @@ def Linear(x, y):
   return lambda x: w.T @ x + b
 ```
 
-Use the layer within a larger model,
+Use the layer within a larger model.
 
 ```py
 def model(x):
