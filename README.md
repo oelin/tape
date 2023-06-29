@@ -19,12 +19,14 @@ class Tape:
     return f(x), tape
 ```
 
+
+## Usage
+
+Initialize a tape.
+
 ```py
 tape = Tape()
 ```
-
-
-## Usage
 
 Define a `Linear` layer.
 
