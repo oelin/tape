@@ -9,6 +9,3 @@ class Tape:
   def run(self, f, x, tape):
     self.tape = iter(tape) if tape else tape
     return f(x), tape
-
-
-tape = Tape()
