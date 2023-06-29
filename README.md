@@ -1,6 +1,6 @@
 # Tape
 
-A tiny (9 line) variable tape implementation in Python.
+A tiny (9 line) parameter tape implementation.
 
 
 ## Implementation
