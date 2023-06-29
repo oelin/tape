@@ -8,7 +8,7 @@ A tiny (8 line) variable tape implementation in Python.
 ```py
 class Tape:
 
-  def variable(self, x):
+  def parameter(self, x):
     if isinstance(self.tape, Iterator):
       return next(self.tape)
 
