@@ -9,7 +9,6 @@ A tiny (8 line) parameter tape implementation.
 class Tape:
 
   def parameter(self, x):
-
     if isinstance(self.tape, set):
       return self.tape.add(x) or x
     return next(self.tape)
