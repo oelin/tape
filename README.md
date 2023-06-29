@@ -22,42 +22,41 @@ class Tape:
 
 ## Usage
 
-Implementing a `Linear` module.
+Define a `Linear` layer.
 
 ```py
-from dataclasses import dataclass
 from tape import tape
 
-def Linear(features):
-  w = tape.variable(np.random.randn(*self.features))    # weight
-  b = tape.variable(np.random.randn(self.features[1]))  # bias
+def Linear(x, y):
+  w = tape.parameter(np.random.randn(x, y))  # weight
+  b = tape.parameter(np.random.randn(y))     # bias
 
   return lambda x: w.T @ x + b
 ```
 
-Using `Linear` within a larger module (supports co-location).
+Use the layer within a larger model,
 
 ```py
 def model(x):
-  x = Linear((28 * 28, 128))(x)
-  x = Linear((128, 64))(x)
-  x = Linear((64, 10))(x)
+  x = relu(Linear(28 * 28, 128)(x))
+  x = relu(Linear(128, 64)(x))
+  x = softmax(Linear(64, 10)(x))
 
   return x
 ```
 
-Run the module. Firstly initialize its parameters and then run it with those parameters.
+Run the model. Firstly initialize its parameters and then run it with those parameters.
 
 ```py
 >>> batch = np.ones(28 * 28)
->>> x, variables = tape.run(model, batch, {})          # Initialization. 
->>> x, variables = tape.run(model, batch, variables)   # Forward pass.
+>>> x, parameters = tape.run(model, batch, {})          # Initialization. 
+>>> x, parameters = tape.run(model, batch, parameters)  # Forward pass.
 ```
 
-Equivalent code with Flax:
+Compare with Flax.
 
 ```py
 >>> batch = jnp.ones(28 * 28)
->>> variables = model.init(jax.random.PRNGKey(0), batch)
->>> output = model.apply(variables, batch)
+>>> parameters = model.init(jax.random.PRNGKey(0), batch)  # Initialization.
+>>> x = model.apply(parameters, batch)                     # Foward pass.
 ```
