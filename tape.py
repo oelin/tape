@@ -1,6 +1,6 @@
 class Tape:
 
-  def parameter(self, x):
+  def variable(self, x):
     if isinstance(self.tape, Iterator):
       return next(self.tape)
 
